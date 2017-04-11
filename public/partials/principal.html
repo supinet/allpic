@@ -1,0 +1,30 @@
+<div class="jumbotron">
+    <h1 class="text-center">allpic</h1>
+</div>
+
+<p class="alert alert-info" ng-show="mensagem.length">{{mensagem}}</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <form>
+        <div class="input-group">
+            <!-- element decoration of filtro -->
+             <span class="input-group-btn"><a href="fotos/new" class="btn btn-primary">Nova foto</a></span>
+             
+            <!-- ng-model = to way databind
+            ng-model-options = delay half second
+            -->
+            <input ng-model="filtro" ng-model-options="{debounce: 500}" class="form-control" placeholder="filtrar">
+        </div>
+        </form>
+    </div> <!-- fim col-md-12-->
+</div> <!-- fim row -->
+
+<div class="row">
+<!-- filter = -->
+    <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
+        <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+        <a href="fotos/edit/{{foto._id}}" class="btn btn-primary btn-block">Editar</a>
+        <danger-button nome="Remover" acao="remover(foto)"></danger-button>
+    </meu-painel>
+</div> <!-- fim row-->
