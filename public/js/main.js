@@ -1,7 +1,7 @@
 /* routeProvider: rotas to pages 
    locationProvider: retirar #
 */
-angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'ngResource'])
+angular.module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute', 'meusServicos'])
 .config(function($routeProvider, $locationProvider){
 
 	$locationProvider.html5Mode(true);

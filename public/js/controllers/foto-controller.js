@@ -1,13 +1,13 @@
-angular.module('alurapic').controller('FotoController', function($scope, $http, $resource, $routeParams) {
+angular.module('alurapic').controller('FotoController', function($scope, recursoFoto, $routeParams) {
 
 	$scope.foto = {};
 	$scope.mensagem = '';
 
-	var recursoFoto = $resource('v1/fotos/:fotoId', null, {
-		update : {
-			method : 'PUT'
-		}
-	});
+	// var recursoFoto = $resource('v1/fotos/:fotoId', null, {
+	// 	update : {
+	// 		method : 'PUT'
+	// 	}
+	// });
 
 	if($routeParams.fotoId) {
 		recursoFoto.get({fotoId : $routeParams.fotoId}, function(foto) {
